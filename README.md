@@ -16,12 +16,8 @@ import GitGist from 'react-nextjs-github-gist'
 //Somewhere in component or page 
 <GitGist id={string} file={string} />
 ```
+You can get the id from the Github url, kindly check the URL sample https://gist.github.com/{your_name}/{id}
 
-```
-How to get id ?
-
-You can get the id from the github url, kindly check the URL https://gist.github.com/{your_name}/{id}
-```
 
 ## Default Configuration
 
