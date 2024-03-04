@@ -34,3 +34,13 @@ If no props are passed to <GitGist />, below is the default configuration applie
     getProfile = 'true', //this give avatar and name of the owner of gist
 />
 ```
+
+---
+## How i can contribute
+
+1. Fork the repo
+2. Make changes
+3. Create pull request
+4. We will review it and will merge it.
+
+>> We are using Tsdx, to build you can use ```npm run build```
