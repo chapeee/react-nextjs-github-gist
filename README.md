@@ -25,7 +25,7 @@ You can get the id from the github url, kindly check the URL https://gist.github
 
 ## Default Configuration
 
-If no props are passed to <GitGist />, below is the default configuration applied.
+If no props are passed to ```<GitGist />```, below is the default configuration applied.
 **id is must**
 ```
 <GitGist 
