@@ -21,8 +21,7 @@
     },
     "peerDependencies": {
         "react": ">=16",
-        "axios": "^1.6.7",
-        "react-iframe": "^1.8.5"
+        "axios": "^0.1"
     },
     "husky": {
         "hooks": {
@@ -35,16 +34,16 @@
         "singleQuote": true,
         "trailingComma": "es5"
     },
-    "name": "react-next-github-gist",
+    "name": "react-nextjs-github-gist",
     "author": "grapdevs",
-    "module": "dist/react-next-github-gist.esm.js",
+    "module": "dist/react-nextjs-github-gist.esm.js",
     "size-limit": [
         {
-            "path": "dist/react-next-github-gist.cjs.production.min.js",
+            "path": "dist/react-nextjs-github-gist.cjs.production.min.js",
             "limit": "10 KB"
         },
         {
-            "path": "dist/react-next-github-gist.esm.js",
+            "path": "dist/react-nextjs-github-gist.esm.js",
             "limit": "10 KB"
         }
     ],
