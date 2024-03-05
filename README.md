@@ -28,9 +28,10 @@ If no props are passed to ```<GitGist id="MUST" />```, below is the default conf
     width = '100%',
     height = '600px',
     getProfile = 'true', //this give avatar and name of the owner of gist
+    userName = '' //pass the username of the gist owner
 />
 ```
-
+currently because of CORS i am able to fetch the userame from git, yet i will figure out some way in future releases, so for now lets do manual work.
 ---
 ## How i can contribute
 
@@ -40,3 +41,9 @@ If no props are passed to ```<GitGist id="MUST" />```, below is the default conf
 4. We will review it and will merge it.
 
 >> We are using Tsdx, to build you can use ```npm run build```
+
+
+
+## Authors
+
+- [@chapeee](https://github.com/chapeee/)

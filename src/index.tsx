@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import GitUserInfo from './Utils/Profile';
 
 interface GistProps {
@@ -7,6 +7,7 @@ interface GistProps {
   width?: string;
   height?: string;
   getProfile?: string;
+  userName? : string
 }
 
 function createGitGistUrl(id: string, file?: string): string {
@@ -21,8 +22,15 @@ function GitGist({
   width = '100%',
   height = '600px',
   getProfile = 'true',
+  userName = ""
 }: GistProps) {
   const iframeRef = useRef<HTMLIFrameElement>(null);
+  const [gistLink, setGistLink] = useState<string>('');
+
+  useEffect(() => {
+    const link = createGitGistUrl(id, file);
+    setGistLink(link);
+  }, [id, file]);
 
   useEffect(() => {
     function updateIframeContent() {
@@ -32,21 +40,19 @@ function GitGist({
       const doc = iframe.contentWindow?.document;
       if (!doc) return;
 
-      const gistLink = createGitGistUrl(id, file);
-      const gistScript = `<script type="text/javascript" src="${gistLink}"></script>`;
-      const html = gistScript;
-
+      const html = `<script type="text/javascript" src="${gistLink}"></script>`;
+    
       doc.open();
       doc.write(html);
       doc.close();
     }
 
     updateIframeContent();
-  }, [id, file]);
+  }, [gistLink]);
 
   return (
     <div>
-      {getProfile == 'true' && <GitUserInfo />}
+      {getProfile == 'true' && <GitUserInfo gistUsername={userName} />}
       <iframe
         ref={iframeRef}
         width={width}
