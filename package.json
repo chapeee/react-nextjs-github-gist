@@ -1,5 +1,5 @@
 {
-    "version": "1.0.7",
+    "version": "1.0.9",
     "license": "MIT",
     "main": "dist/index.js",
     "typings": "dist/index.d.ts",
@@ -20,8 +20,8 @@
         "analyze": "size-limit --why"
     },
     "peerDependencies": {
-        "react": ">=16",
-        "axios": "^0.1"
+        "axios": "^0.1",
+        "react": ">=16"
     },
     "husky": {
         "hooks": {
@@ -68,6 +68,6 @@
     "repository": {
         "type": "git",
         "url": "git+https://github.com/chapeee/react-nextjs-github-gist"
-      },
-      "homepage": "https://github.com/chapeee/react-nextjs-github-gist"
+    },
+    "homepage": "https://github.com/chapeee/react-nextjs-github-gist"
 }
