@@ -1,17 +1,17 @@
-# React & Next Gist Loader
+# React & nextJs Gist Loader
 
 - A library made using tsdx that help you to add gist in react and next on client side with username and avatar.
 
 ## Setup
 
 ```
-npm install react-nextjs-github-gist
+npm i "@breww.io/react-nextjs-github-gist"
 ```
 
 ## Usage
 
 ```
-import GitGist from "react-nextjs-github-gist";
+import GitGist from "@breww.io/react-nextjs-github-gist";
 
 //Somewhere in component or page 
 <GitGist id={string} file={string} />

@@ -1,5 +1,5 @@
 {
-    "version": "1.0.0",
+    "version": "1.0.3",
     "license": "MIT",
     "main": "dist/index.js",
     "typings": "dist/index.d.ts",
@@ -34,8 +34,8 @@
         "singleQuote": true,
         "trailingComma": "es5"
     },
-    "name": "react-nextjs-github-gist",
-    "author": "grapdevs",
+    "name": "@breww.io/react-nextjs-github-gist",
+    "author": "rajneesh",
     "module": "dist/react-nextjs-github-gist.esm.js",
     "size-limit": [
         {
