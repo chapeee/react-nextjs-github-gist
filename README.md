@@ -5,13 +5,13 @@
 ## Setup
 
 ```
-npm i "@breww.io/react-nextjs-github-gist"
+npm i "@myselfraj/react-nextjs-github-gist"
 ```
 
 ## Usage
 
 ```
-import GitGist from "@breww.io/react-nextjs-github-gist";
+import GitGist from "@myselfraj/react-nextjs-github-gist";
 
 //Somewhere in component or page 
 <GitGist id={string} file={string} />
