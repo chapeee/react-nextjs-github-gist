@@ -33,6 +33,7 @@ function GitGist({
   }, [id, file]);
 
   useEffect(() => {
+    console.log(userName)
     function updateIframeContent() {
       const iframe = iframeRef.current;
       if (!iframe) return;

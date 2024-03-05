@@ -1,5 +1,5 @@
-export default async function getUsernameFromGistUrl(userName: any) {
-  return `https://api.github.com/users/${userName}`;
+export default async function getUsernameFromGistUrl(userName: string) {
+  return `https://api.github.com/users/`+userName;
 }
 
 //   gistUrl = String(gistUrl);

@@ -2,12 +2,16 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import getUsernameFromGistUrl from './UserName';
 
+interface GitUserInfoProps {
+  gistUsername: string;
+}
+
 interface GitUserInfo {
   avatarUrl: string;
   name: string;
 }
 
-function GitUserInfo(gistUsername: any) {
+function GitUserInfo({ gistUsername }: GitUserInfoProps) {
   const [userInfo, setUserInfo] = useState<GitUserInfo | null>(null);
 
   useEffect(() => {
@@ -22,7 +26,7 @@ function GitUserInfo(gistUsername: any) {
     }
 
     fetchUserInfo();
-  }, []);
+  }, [gistUsername]); // <-- Include gistUsername in dependency array
 
   return (
     <div>
@@ -36,7 +40,7 @@ function GitUserInfo(gistUsername: any) {
           <p style={{ padding: '5px' }}>Gist By. {userInfo.name}</p>
         </div>
       ) : (
-        <div></div>
+        <div>Loading...</div>
       )}
     </div>
   );
