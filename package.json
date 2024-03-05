@@ -1,5 +1,5 @@
 {
-    "version": "1.0.6",
+    "version": "1.0.7",
     "license": "MIT",
     "main": "dist/index.js",
     "typings": "dist/index.d.ts",
@@ -64,5 +64,10 @@
         "html-creator": "^0.7.2",
         "react-axios": "^2.0.6",
         "react-iframe": "^1.8.5"
-    }
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/chapeee/react-nextjs-github-gist"
+      },
+      "homepage": "https://github.com/chapeee/react-nextjs-github-gist"
 }
