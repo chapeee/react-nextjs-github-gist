@@ -34,6 +34,8 @@ If no props are passed to ```<GitGist id="MUST" />```, below is the default conf
 ```
 
 currently because of CORS i am unable to fetch the userame from git, yet i will figure out some way in future releases, so for now lets do manual work.
+Thnx to tleunen code.
+
 
 ---
 ## How i can contribute
