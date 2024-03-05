@@ -28,7 +28,7 @@ If no props are passed to ```<GitGist id="MUST" />```, below is the default conf
     file = "",
     width = '100%',
     height = '600px',
-    getProfile = 'true', //this give avatar and name of the owner of gist
+    getProfile = 'false', //this give avatar and name of the owner of gist
     userName = '' //pass the username of the gist owner
 />
 ```

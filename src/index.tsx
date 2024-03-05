@@ -21,7 +21,7 @@ function GitGist({
   file,
   width = '100%',
   height = '600px',
-  getProfile = 'true',
+  getProfile = 'false',
   userName = ""
 }: GistProps) {
   const iframeRef = useRef<HTMLIFrameElement>(null);
