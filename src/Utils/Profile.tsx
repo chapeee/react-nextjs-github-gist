@@ -40,7 +40,7 @@ function GitUserInfo({ gistUsername }: GitUserInfoProps) {
           <p style={{ padding: '5px' }}>Gist By. {userInfo.name}</p>
         </div>
       ) : (
-        <div>Loading...</div>
+        <div></div>
       )}
     </div>
   );

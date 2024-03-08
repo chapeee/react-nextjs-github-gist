@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import GitUserInfo from './Utils/Profile';
-import CreateIframe from './Utils/CreateIfram';
+import CreateIframe from './Utils/CreateIframe';
 import { GistProps } from './Interfaces/Git'
 
 function createGitGistUrl(id: string, file?: string): string {

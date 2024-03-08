@@ -1,6 +1,11 @@
 # React & nextJs Gist Loader
 
-- A library made using tsdx that help you to add gist in react and next on client side with username and avatar.
+- A package help you to add github gist in react and next on client side with username and avatar.
+
+## Demo 
+
+https://www.myselfraj.com/eg/gist
+
 
 ## Setup
 
@@ -11,6 +16,7 @@ npm i "@myselfraj/react-nextjs-github-gist"
 ## Usage
 
 ```
+"use client"
 import GitGist from "@myselfraj/react-nextjs-github-gist";
 
 //Somewhere in component or page 
@@ -22,19 +28,19 @@ You can get the id from the Github url, kindly check the URL sample https://gist
 ## Default Configuration
 
 If no props are passed to ```<GitGist id="MUST" />```, below is the default configuration applied.
-**id is must**
 ```
 <GitGist 
     file = "",
     width = '100%',
     height = '600px',
-    getProfile = 'false', //this give avatar and name of the owner of gist
+    getProfile = 'false',  //disables the feature that retrieves the avatar and name of the gist owner. Still you need to pass "UserName" manually, This Will depereacted in future releases to support UserName in advance Mode
     userName = '' //pass the username of the gist owner
 />
 ```
 
-currently because of CORS i am unable to fetch the userame from git, yet i will figure out some way in future releases, so for now lets do manual work.
-Thnx to tleunen code.
+Currently, due to CORS (Cross-Origin Resource Sharing) restrictions, I am unable to fetch the username from GitHub using the Gist API. However, I plan to find a solution for this in future releases. In the meantime, we will have to resort to manual work. That's why you need to pass the **userName** parameter manually.
+
+
 
 
 ---
@@ -45,10 +51,18 @@ Thnx to tleunen code.
 3. Create pull request
 4. We will review it and will merge it.
 
->> We are using Tsdx, to build you can use ```npm run build```
+> We are using Tsdx.
 
+### Love it Drop a star on github
 
+https://github.com/chapeee/react-nextjs-github-gist
 
 ## Authors
 
 - [@chapeee](https://github.com/chapeee/)
+
+## Connect with me
+[LinkedIn](https://www.linkedin.com/in/myselfraj/)
+
+
+Thanks to tleunen's code.
