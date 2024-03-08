@@ -1,55 +1,76 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { Component } from 'react';
 import GitUserInfo from './Utils/Profile';
 import CreateIframe from './Utils/CreateIframe';
-import { GistProps } from './Interfaces/Git'
 
-function createGitGistUrl(id: string, file?: string): string {
-  const baseUrl = 'https://gist.github.com/';
-  const fileArg = file ? `?file=${file}` : '';
-  return `${baseUrl}${id}.js${fileArg}`;
-}
+import { GistProps, GitGistState } from './Interfaces/Git';
 
-function GitGist({
-  id,
-  file,
-  width = '100%',
-  height = '600px',
-  getProfile = 'false',
-  userName = ""
-}: GistProps) {
-  const iframeRef = useRef<HTMLIFrameElement>(null);
-  const [gistLink, setGistLink] = useState<string>('');
+class GitGist extends Component<GistProps, GitGistState> {
+  iframeRef: React.RefObject<HTMLIFrameElement>;
 
-  useEffect(() => {
-    const link = createGitGistUrl(id, file);
-    setGistLink(link);
-  }, [id, file]);
+  constructor(props: GistProps) {
+    super(props);
+    this.iframeRef = React.createRef<HTMLIFrameElement>();
+    this.state = {
+      gistLink: '',
+    };
+  }
 
-  useEffect(() => {
-    console.log(userName)
-    function updateIframeContent() {
-      const iframe = iframeRef.current;
-      if (!iframe) return;
+  componentDidMount() {
+    this.updateGistLink();
+  }
 
-      const doc = iframe.contentWindow?.document;
-      if (!doc) return;
-
-      const html = `<script type="text/javascript" src="${gistLink}"></script>`;
-
-      doc.open();
-      doc.write(html);
-      doc.close();
+  componentDidUpdate(prevProps: GistProps) {
+    if (this.props.id !== prevProps.id || this.props.file !== prevProps.file) {
+      this.updateGistLink();
     }
+  }
 
-    updateIframeContent();
-  }, [gistLink]);
+  createGitGistUrl(id: string, file?: string): string {
+    const baseUrl = 'https://gist.github.com/';
+    const fileArg = file ? `?file=${file}` : '';
+    return `${baseUrl}${id}.js${fileArg}`;
+  }
 
-  return (
-    <div>
-      {getProfile == 'true' && <GitUserInfo gistUsername={userName} />}
-      <CreateIframe iframeRef={iframeRef} width={width} height={height} file={file} id={id} />
-    </div>
-  );
+  updateGistLink() {
+    const link = this.createGitGistUrl(this.props.id, this.props.file);
+    this.setState({ gistLink: link }, this.updateIframeContent);
+  }
+
+  updateIframeContent() {
+    const iframe = this.iframeRef.current;
+    if (!iframe) return;
+
+    const doc = iframe.contentWindow?.document;
+    if (!doc) return;
+
+    const html = `<script type="text/javascript" src="${this.state.gistLink}"></script>`;
+
+    doc.open();
+    doc.write(html);
+    doc.close();
+  }
+
+  render() {
+    const {
+      width = '100%',
+      height = '600px',
+      getProfile = 'false',
+      userName = '',
+    } = this.props;
+
+    return (
+      <div>
+        {getProfile === 'true' && <GitUserInfo gistUsername={userName} />}
+        <CreateIframe
+          iframeRef={this.iframeRef}
+          width={width}
+          height={height}
+          file={this.props.file}
+          id={this.props.id}
+        />
+      </div>
+    );
+  }
 }
 
 export default GitGist;

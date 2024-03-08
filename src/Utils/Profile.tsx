@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { Component } from 'react';
 import axios from 'axios';
 import getUsernameFromGistUrl from './UserName';
 
@@ -6,44 +6,48 @@ interface GitUserInfoProps {
   gistUsername: string;
 }
 
-interface GitUserInfo {
+interface GitUserInfoState {
   avatarUrl: string;
   name: string;
 }
 
-function GitUserInfo({ gistUsername }: GitUserInfoProps) {
-  const [userInfo, setUserInfo] = useState<GitUserInfo | null>(null);
+class GitUserInfo extends Component<GitUserInfoProps, GitUserInfoState> {
+  constructor(props: GitUserInfoProps) {
+    super(props);
+    this.state = {
+      avatarUrl: '',
+      name: ''
+    };
+  }
 
-  useEffect(() => {
-    async function fetchUserInfo() {
-      try {
-        const response = await axios.get(await getUsernameFromGistUrl(gistUsername));
-        const { avatar_url, name } = response.data;
-        setUserInfo({ avatarUrl: avatar_url, name: name });
-      } catch (error) {
-        console.error('Error fetching user information:', error);
-      }
+  async componentDidMount() {
+    try {
+      const response = await axios.get(await getUsernameFromGistUrl(this.props.gistUsername));
+      const { avatar_url, name } = response.data;
+      this.setState({ avatarUrl: avatar_url, name: name });
+    } catch (error) {
+      console.error('Error fetching user information:', error);
     }
+  }
 
-    fetchUserInfo();
-  }, [gistUsername]); // <-- Include gistUsername in dependency array
+  render() {
+    const { avatarUrl, name } = this.state;
 
-  return (
-    <div>
-      {userInfo ? (
-        <div style={{ display: 'flex', alignItems: 'center' }}>
-          <img
-            src={userInfo.avatarUrl}
-            alt="Avatar"
-            style={{ width: 30, height: 30, borderRadius: '50%' }}
-          />
-          <p style={{ padding: '5px' }}>Gist By. {userInfo.name}</p>
-        </div>
-      ) : (
-        <div></div>
-      )}
-    </div>
-  );
+    return (
+      <div>
+        {avatarUrl && (
+          <div style={{ display: 'flex', alignItems: 'center' }}>
+            <img
+              src={avatarUrl}
+              alt="Avatar"
+              style={{ width: 30, height: 30, borderRadius: '50%' }}
+            />
+            <p style={{ padding: '5px' }}>Gist By. {name}</p>
+          </div>
+        )}
+      </div>
+    );
+  }
 }
 
 export default GitUserInfo;

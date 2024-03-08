@@ -1,6 +1,6 @@
 # React & nextJs Gist Loader
 
-- A package help you to add github gist in react and next on client side with username and avatar.
+- A package help you to add github gist in react and next with username and avatar.
 
 ## Demo 
 
@@ -16,7 +16,6 @@ npm i "@myselfraj/react-nextjs-github-gist"
 ## Usage
 
 ```
-"use client"
 import GitGist from "@myselfraj/react-nextjs-github-gist";
 
 //Somewhere in component or page 
@@ -60,6 +59,7 @@ https://github.com/chapeee/react-nextjs-github-gist
 ## Authors
 
 - [@chapeee](https://github.com/chapeee/)
+- Avinash - For Class Component
 
 ## Connect with me
 [LinkedIn](https://www.linkedin.com/in/myselfraj/)

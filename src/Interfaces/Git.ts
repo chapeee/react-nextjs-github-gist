@@ -14,3 +14,8 @@ export interface CreateIframeProps {
     file: any;
     id: any;
 }
+
+
+export interface GitGistState {
+    gistLink: string;
+  }
