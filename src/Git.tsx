@@ -1,14 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import GitUserInfo from './Utils/Profile';
-
-interface GistProps {
-  id: string;
-  file?: string;
-  width?: string;
-  height?: string;
-  getProfile?: string;
-  userName? : string
-}
+import CreateIframe from './Utils/CreateIfram';
+import { GistProps } from './Interfaces/Git'
 
 function createGitGistUrl(id: string, file?: string): string {
   const baseUrl = 'https://gist.github.com/';
@@ -42,7 +35,7 @@ function GitGist({
       if (!doc) return;
 
       const html = `<script type="text/javascript" src="${gistLink}"></script>`;
-    
+
       doc.open();
       doc.write(html);
       doc.close();
@@ -54,13 +47,7 @@ function GitGist({
   return (
     <div>
       {getProfile == 'true' && <GitUserInfo gistUsername={userName} />}
-      <iframe
-        ref={iframeRef}
-        width={width}
-        height={height}
-        frameBorder={0}
-        id={file ? `gist-${id}-${file}` : `gist-${id}`}
-      />
+      <CreateIframe iframeRef={iframeRef} width={width} height={height} file={file} id={id} />
     </div>
   );
 }
