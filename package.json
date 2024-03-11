@@ -1,5 +1,5 @@
 {
-    "version": "2.0.1",
+    "version": "2.0.2",
     "license": "MIT",
     "main": "dist/index.js",
     "typings": "dist/index.d.ts",
@@ -66,5 +66,5 @@
         "type": "git",
         "url": "git+https://github.com/chapeee/react-nextjs-github-gist"
     },
-    "homepage": "https://github.com/chapeee/react-nextjs-github-gist"
+    "homepage": "https://github.com/chapeee/react-nextjs-github-gist#readme"
 }
